@@ -1,0 +1,51 @@
+## STOICS - https://github.com/stoicszip/stoics-overlay
+
+# bolt-launcher - alt launcher for osrs
+games-rpg/bolt-launcher::stoics
+
+## GURU - https://wiki.gentoo.org/wiki/Project:GURU
+
+# yazi - terminal file manager
+app-misc/yazi
+
+# vesktop - alt discord
+=net-im/vesktop-bin-1.5.4::guru
+
+# zen browser - forked firefox
+>=www-client/zen-bin-1.7.1b::guru
+
+# r2modman - mod manager (e.g. lethal company)
+>=games-util/r2modman-bin-3.1.51::guru
+
+# tldr - improved/easier man page.
+app-text/tldr
+
+## GENTOO - https://packages.gentoo.org/categories
+
+# openmw - engine for morrowind
+=games-engines/openmw-0.48.0::gentoo
+
+# mygui - gui library needed by openmw
+=dev-games/mygui-3.4.1-r1::gentoo
+
+# recastnavigation - toolset
+=dev-games/recastnavigation-1.6.0::gentoo
+
+# openscenegraph - openmw fork
+=dev-games/openscenegraph-openmw-3.6_p20221115-r1::gentoo
+
+# sol2 - lua api wrapper
+=dev-cpp/sol2-3.3.1::gentoo
+
+# gamemode - optimise system for  better (game) performance on demand 
+games-util/gamemode
+
+# moonlight - can stream sunshine clients to my computer
+>=net-misc/moonlight-6.1.0-r1::gentoo
+
+
+## STEAM - https://github.com/anyc/steam-overlay
+
+*/*::steam-overlay
+games-util/game-device-udev-rules
+sys-libs/libudev-compat
