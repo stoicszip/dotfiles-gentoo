@@ -1,7 +1,6 @@
-# exec --no-startup-id dbus-update-activation-environment --all
-
 ### Variables
 
+# updating environment variable for dbus
 exec --no-startup-id dbus-update-activation-environment --all
 
 # Logo key. Use Mod1 for Alt.
