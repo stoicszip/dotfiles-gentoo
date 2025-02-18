@@ -1,0 +1,31 @@
+# packages outside the gentoo overlay
+
+## GURU - https://wiki.gentoo.org/wiki/Project:GURU
+
+# yazi - terminal file manager
+>=app-misc/yazi-25.2.11::guru
+
+# vesktop - alt discord
+=net-im/vesktop-bin-1.5.4::guru
+
+# zen browser - forked firefox
+>=www-client/zen-bin-1.7.1b::guru
+
+# r2modman - mod manager (e.g. lethal company)
+>=games-util/r2modman-bin-3.1.51::guru
+
+# tldr - improved/easier man page.
+app-text/tldr
+
+
+## STOICS - https://github.com/stoicszip/stoics-overlay
+
+# bolt-launcher - alt launcher for osrs
+games-rpg/bolt-launcher::stoics
+
+
+## STEAM - https://github.com/anyc/steam-overlay
+
+*/*::steam-overlay
+games-util/game-device-udev-rules
+sys-libs/libudev-compat
