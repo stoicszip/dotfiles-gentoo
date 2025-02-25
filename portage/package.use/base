@@ -26,10 +26,6 @@ media-video/ffmpeg x264 x265 bluray vaapi libdrm
 # fonts - google font package, kinda bloated.
 media-fonts/noto cjk
 
-# required by gui-apps/waybar-0.11.0-r1::gentoo[tray]
-# required by waybar (argument)
->=dev-libs/libdbusmenu-16.04.0-r2 gtk3
-
 # ncspot - terminal spotify player
 media-sound/ncspot mpris
 
