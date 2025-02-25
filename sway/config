@@ -16,13 +16,13 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | wmenu | xargs swaymsg exec --
+set $menu dmenu_path | wmenu-run | xargs swaymsg exec --
 
 ### Output
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output DP-1 pos 1920 0 res 1920x1080@180Hz
-output HDMI-A-1 pos 0 0 res 1920x1080@144Hz
+output DP-1 pos 0 0 res 1920x1080@180Hz
+output HDMI-A-1 pos 1920 0 res 1920x1080@144Hz
 
 ### Key bindings
 #
@@ -145,10 +145,10 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym $left resize shrink width 50px
+    bindsym $down resize grow height 50px
+    bindsym $up resize shrink height 50px
+    bindsym $right resize grow width 50px
 
     # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
@@ -165,13 +165,9 @@ bindsym $mod+r mode "resize"
 #
 # Status Bar:
 #
-# Read `man 5 sway-bar` for more information about this section.
 bar {
     position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %X'; do sleep 1; done
+    status_command while ~/.config/sway/status.sh; do sleep 1; done
 
     colors {
         statusline #ffffff
@@ -179,7 +175,7 @@ bar {
 	      focused_workspace #434a4c #565758 #ffffff
 	      inactive_workspace #434a4c #303536 #ffffff
 	      font pango:DejaVu Sans Mono 7
-	      }
+	}
 }
 
 include /etc/sway/config.d/*
@@ -188,12 +184,14 @@ include /etc/sway/config.d/*
 default_border pixel 2
 default_floating_border pixel 2
 
-client.focused           #3c3836 #7c6f64 #1d2021 #3c3836   #3c3836
-client.focused_inactive  #282828 #282828 #ddc7a1 #282828   #282828
-client.unfocused		     #282828 #282828 #ddc7a1 #282828   #282828
-client.urgent			       #d8a657 #d8a657 #1d2021 #d8a657   #d8a657
-client.placeholder		   #7daea3 #7daea3 #1d2021 #7daea3   #7daea3
+# 
+client.focused           #3c3836 #7c6f64 #1d2021 #3c3836 #3c3836
+client.focused_inactive  #282828 #282828 #ddc7a1 #282828 #282828
+client.unfocused	 #282828 #282828 #ddc7a1 #282828 #282828
+client.urgent		 #d8a657 #d8a657 #1d2021 #d8a657 #d8a657
+client.placeholder	 #7daea3 #7daea3 #1d2021 #7daea3 #7daea3
 
+# if gaps are needed
 # gaps inner 2
 # gaps outer 2
 
@@ -218,12 +216,20 @@ input type:pointer {
     pointer_accel 0
 }
 
+seat seat0 xcursor_theme gentoo 24
+
 # background
 output * bg #1d2021 solid_color
 
 # custom keybinds
 bindsym $mod+shift+p exec grim -g "$(slurp)" - | wl-copy
 bindsym $mod+n exec zen-bin
+
+# gsettings, some settings don't work in ~/.config/gtk-3.0/settings.ini
+exec_always {
+    gsettings set org.gnome.desktop.interface cursor-theme 'gentoo'
+    gsettings set org.gnome.desktop.interface cursor-size 24
+}
 
 # disable xwayland
 # xwayland disable

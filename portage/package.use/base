@@ -9,9 +9,6 @@ media-video/pipewire sound-server pipewire-alsa
 # sway - window manager
 gui-wm/sway -man -wallpapers
 
-# libreoffice
-app-office/libreoffice -bluetooth
-
 # keepassxc - password manager
 app-admin/keepassxc -network -ssh-agent
 >=sys-libs/zlib-1.3.1-r1 minizip
@@ -29,6 +26,13 @@ media-video/ffmpeg x264 x265 bluray vaapi libdrm
 # fonts - google font package, kinda bloated.
 media-fonts/noto cjk
 
+# required by gui-apps/waybar-0.11.0-r1::gentoo[tray]
+# required by waybar (argument)
+>=dev-libs/libdbusmenu-16.04.0-r2 gtk3
+
+# ncspot - terminal spotify player
+media-sound/ncspot mpris
+
 # required by games-engines/openmw-0.48.0::gentoo
 >=sci-physics/bullet-3.21 double-precision
 
@@ -36,6 +40,24 @@ media-fonts/noto cjk
 sys-process/htop lm-sensors
 
 ## 32-bit use flags
+
+# required by media-libs/mesa-24.3.4-r1::gentoo
+# required by gui-libs/wlroots-0.17.4::gentoo
+# required by gui-wm/sway-1.9-r1::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-util/spirv-tools-1.3.296.0 abi_x86_32
+
+# required by sys-libs/pam-1.7.0_p20241230-r3::gentoo[-berkdb]
+# required by sys-apps/util-linux-2.40.4::gentoo[pam]
+# required by dev-lang/python-3.13.2::gentoo
+# required by dev-util/glslang-1.4.304.0::gentoo
+# required by media-libs/shaderc-2024.4::gentoo
+# required by media-libs/libplacebo-7.349.0::gentoo[shaderc]
+# required by media-video/mpv-0.39.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=sys-libs/gdbm-1.24 abi_x86_32
 
 # needed by mesa
 x11-libs/libdrm video_cards_radeon
