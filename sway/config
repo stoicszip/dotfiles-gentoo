@@ -184,7 +184,7 @@ include /etc/sway/config.d/*
 default_border pixel 2
 default_floating_border pixel 2
 
-# 
+# themeing 
 client.focused           #3c3836 #7c6f64 #1d2021 #3c3836 #3c3836
 client.focused_inactive  #282828 #282828 #ddc7a1 #282828 #282828
 client.unfocused	 #282828 #282828 #ddc7a1 #282828 #282828
@@ -210,12 +210,13 @@ for_window [title="^Steam Keyboard$"] floating enable
 # pipewire
 exec gentoo-pipewire-launcher restart &
 
-# mouse
+# mouse settings
 input type:pointer {
     accel_profile "flat"
     pointer_accel 0
 }
 
+# setting cursor size
 seat seat0 xcursor_theme gentoo 24
 
 # background
